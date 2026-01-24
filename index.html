@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site em Manutenção | Consultoria Velho Chico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --cor-preto: #000000;
+            --cor-cinza-900: #111827;
+            --cor-cinza-800: #1f2937;
+            --cor-cinza-700: #374151;
+            --cor-cinza-600: #4b5563;
+            --cor-cinza-500: #6b7280;
+            --cor-cinza-400: #9ca3af;
+            --cor-cinza-300: #d1d5db;
+            --cor-cinza-200: #e5e7eb;
+            --cor-cinza-100: #f3f4f6;
+            --cor-vermelho: #dc2626;
+            --cor-branco: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+            color: var(--cor-cinza-100);
+            background-color: var(--cor-cinza-100);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        
+        /* Cabeçalho Corporativo */
+        .cabecalho {
+            background-color: var(--cor-branco);
+            border-bottom: 1px solid var(--cor-cinza-200);
+            padding: 24px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        
+        .logo-texto {
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--cor-preto);
+            letter-spacing: -0.5px;
+        }
+        
+        .contato-header {
+            font-size: 15px;
+            color: var(--cor-cinza-600);
+            font-weight: 400;
+        }
+        
+        /* Conteúdo Principal */
+        .conteudo-principal {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+        
+        .container-manutencao {
+            max-width: 800px;
+            width: 100%;
+            background-color: var(--cor-branco);
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            padding: 60px;
+            text-align: center;
+            border: 1px solid var(--cor-cinza-200);
+        }
+        
+        .status-container {
+            margin-bottom: 40px;
+        }
+        
+        .status-tag {
+            display: inline-block;
+            background-color: #fee2e2;
+            color: var(--cor-vermelho);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            border: 1px solid #fecaca;
+        }
+        
+        h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: 52px;
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--cor-preto);
+            margin: 30px 0 20px 0;
+        }
+        
+        .subtitulo {
+            font-size: 20px;
+            color: var(--cor-cinza-600);
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+        
+        .mensagem-manutencao {
+            text-align: left;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--cor-cinza-700);
+            margin-bottom: 40px;
+            padding: 30px;
+            background-color: var(--cor-cinza-100);
+            border-radius: 6px;
+            border-left: 4px solid var(--cor-cinza-300);
+        }
+        
+        .detalhes-tecnicos {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .detalhe-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 150px;
+        }
+        
+        .detalhe-icon {
+            font-size: 22px;
+            color: var(--cor-cinza-800);
+            margin-bottom: 12px;
+            opacity: 0.8;
+        }
+        
+        .detalhe-label {
+            font-size: 14px;
+            color: var(--cor-cinza-500);
+            margin-bottom: 6px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .detalhe-valor {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--cor-cinza-900);
+        }
+        
+        .contato-container {
+            background-color: var(--cor-cinza-100);
+            padding: 30px;
+            border-radius: 6px;
+            margin-top: 40px;
+            border: 1px solid var(--cor-cinza-200);
+        }
+        
+        .contato-titulo {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--cor-cinza-900);
+            margin-bottom: 16px;
+        }
+        
+        .contato-info {
+            font-size: 16px;
+            color: var(--cor-cinza-600);
+            margin-bottom: 12px;
+        }
+        
+        .contato-email {
+            color: var(--cor-cinza-800);
+            font-weight: 500;
+            font-size: 16px;
+        }
+        
+        .contato-telefone {
+            font-size: 16px;
+            color: var(--cor-cinza-700);
+            margin-top: 12px;
+        }
+        
+        .rodape {
+            background-color: #FFF;
+            padding: 30px 40px;
+            text-align: center;
+            color: var(--cor-cinza-300);
+            font-size: 14px;
+        }
+        
+        .copyright {
+            margin-bottom: 10px;
+            color: var(--cor-cinza-600);
+        }
+        
+        .aviso-legal {
+            font-size: 13px;
+            color: var(--cor-cinza-500);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+        
+        /* Barra de progresso */
+        .sistema-status {
+            width: 100%;
+            height: 6px;
+            background-color: var(--cor-cinza-200);
+            border-radius: 3px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+        
+        .status-bar {
+            height: 100%;
+            width: 65%;
+            background-color: var(--cor-cinza-700);
+            border-radius: 3px;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .cabecalho {
+                padding: 20px 25px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .container-manutencao {
+                padding: 40px 30px;
+            }
+            
+            h1 {
+                font-size: 42px;
+            }
+            
+            .subtitulo {
+                font-size: 18px;
+            }
+            
+            .mensagem-manutencao {
+                padding: 25px;
+                font-size: 16px;
+            }
+            
+            .detalhes-tecnicos {
+                gap: 30px;
+            }
+            
+            .contato-container {
+                padding: 25px;
+            }
+            
+            .rodape {
+                padding: 25px 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 36px;
+            }
+            
+            .container-manutencao {
+                padding: 30px 20px;
+            }
+            
+            .detalhe-item {
+                min-width: 120px;
+            }
+            
+            .cabecalho {
+                padding: 18px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho Corporativo -->
+    <header class="cabecalho">
+        <div class="logo">
+            <div class="logo-texto">Consultoria Velho Chico</div>
+        </div>
+        <div class="contato-header">
+            (87) 99196-2342
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="conteudo-principal">
+        <div class="container-manutencao">
+            <div class="status-container">
+                <span class="status-tag">SISTEMA EM MANUTENÇÃO</span>
+            </div>
+            
+            <h1>Site em Manutenção</h1>
+            
+            <div class="subtitulo">
+                Atualizações técnicas em andamento
+            </div>
+            
+            <!-- Barra de status do sistema -->
+            <div class="sistema-status">
+                <div class="status-bar"></div>
+            </div>
+            
+            <div class="mensagem-manutencao">
+                <p>O site está atualmente indisponível devido à manutenção rotineira do sistema. Lamentamos o inconveniente. Em breve, o site estará disponível novamente.</p>
+                
+                <p style="margin-top: 15px;">Nossa equipe técnica está realizando atualizações essenciais para garantir a estabilidade e segurança da plataforma. Este processo é fundamental para manter os mais altos padrões de qualidade e performance.</p>
+            </div>
+            
+            <!-- Detalhes Técnicos -->
+            <div class="detalhes-tecnicos">
+                <div class="detalhe-item">
+                    <div class="detalhe-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="detalhe-label">Tempo Estimado</div>
+                    <div class="detalhe-valor">12 dias</div>
+                </div>
+                
+                <div class="detalhe-item">
+                    <div class="detalhe-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="detalhe-label">Data</div>
+                    <div class="detalhe-valor">06/02/2026</div>
+                </div>
+                
+                <div class="detalhe-item">
+                    <div class="detalhe-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <div class="detalhe-label">Equipe</div>
+                    <div class="detalhe-valor">Técnica</div>
+                </div>
+            </div>
+            
+            <!-- Informações de Contato -->
+            <div class="contato-container">
+                <div class="contato-titulo">Contato de Emergência</div>
+                <div class="contato-info">
+                    Para assuntos urgentes durante a manutenção:
+                </div>
+                <div class="contato-email">
+                    consultora@velhochico.cloud
+                </div>
+                <div class="contato-telefone">
+                    (87) 99196-2342
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé Corporativo -->
+    <footer class="rodape">
+        <div class="copyright">
+            &copy; 2026 Consultoria Velho Chico. Todos os direitos reservados.
+        </div>
+        <div class="aviso-legal">
+            Esta página está em modo de manutenção temporária. O acesso completo ao sistema será restabelecido assim que as atualizações técnicas forem concluídas.
+        </div>
+    </footer>
+
+    <script>
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            atualizarData();
+        });
+    </script>
+</body>
+</html>
