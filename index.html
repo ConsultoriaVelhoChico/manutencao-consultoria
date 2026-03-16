@@ -345,7 +345,7 @@
                         <i class="fas fa-clock"></i>
                     </div>
                     <div class="detalhe-label">Tempo Estimado</div>
-                    <div class="detalhe-valor">12 dias</div>
+                    <div class="detalhe-valor" id="tempo-estimado">12 dias</div>
                 </div>
                 
                 <div class="detalhe-item">
@@ -353,7 +353,7 @@
                         <i class="fas fa-calendar-alt"></i>
                     </div>
                     <div class="detalhe-label">Data</div>
-                    <div class="detalhe-valor">06/02/2026</div>
+                    <div class="detalhe-valor" id="data-atual">06/02/2026</div>
                 </div>
                 
                 <div class="detalhe-item">
@@ -392,20 +392,37 @@
     </footer>
 
     <script>
-        // Função para atualizar a data no elemento
-        function atualizarData() {
-            const dataElement = document.querySelector('.detalhe-item:nth-child(2) .detalhe-valor');
+        // Função para formatar data no padrão brasileiro (dd/mm/aaaa)
+        function formatarData(data) {
+            const dia = String(data.getDate()).padStart(2, '0');
+            const mes = String(data.getMonth() + 1).padStart(2, '0');
+            const ano = data.getFullYear();
+            return `${dia}/${mes}/${ano}`;
+        }
+
+        // Função para atualizar as datas na página
+        function atualizarDatas() {
+            const dataAtual = new Date();
+            
+            // Atualizar a data atual
+            const dataElement = document.getElementById('data-atual');
             if (dataElement) {
-                const hoje = new Date();
-                const dia = String(hoje.getDate()).padStart(2, '0');
-                const mes = String(hoje.getMonth() + 1).padStart(2, '0');
-                const ano = hoje.getFullYear();
-                dataElement.textContent = `${dia}/${mes}/${ano}`;
+                dataElement.textContent = formatarData(dataAtual);
+            }
+            
+            // Calcular e atualizar a data estimada (12 dias a partir de hoje)
+            const dataEstimada = new Date(dataAtual);
+            dataEstimada.setDate(dataAtual.getDate() + 12);
+            
+            const tempoEstimadoElement = document.getElementById('tempo-estimado');
+            if (tempoEstimadoElement) {
+                tempoEstimadoElement.textContent = formatarData(dataEstimada);
             }
         }
 
+        // Executar quando a página carregar
         document.addEventListener('DOMContentLoaded', function() {
-            atualizarData();
+            atualizarDatas();
         });
     </script>
 </body>
