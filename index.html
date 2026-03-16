@@ -6,7 +6,7 @@
     <title>Site em Manutenção | Consultoria Velho Chico</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -31,7 +31,7 @@
         }
         
         body {
-            font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+            font-family: 'Libre Franklin', 'Helvetica', 'Arial', sans-serif;
             color: var(--cor-cinza-100);
             background-color: var(--cor-cinza-100);
             min-height: 100vh;
@@ -60,7 +60,7 @@
         
         
         .logo-texto {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Libre Franklin', sans-serif;
             font-size: 24px;
             font-weight: 400;
             color: var(--cor-preto);
@@ -110,7 +110,7 @@
         }
         
         h1 {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Libre Franklin', sans-serif;
             font-size: 52px;
             font-weight: 400;
             line-height: 1.2;
@@ -392,7 +392,18 @@
     </footer>
 
     <script>
-        // Inicializar quando a página carregar
+        // Função para atualizar a data no elemento
+        function atualizarData() {
+            const dataElement = document.querySelector('.detalhe-item:nth-child(2) .detalhe-valor');
+            if (dataElement) {
+                const hoje = new Date();
+                const dia = String(hoje.getDate()).padStart(2, '0');
+                const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+                const ano = hoje.getFullYear();
+                dataElement.textContent = `${dia}/${mes}/${ano}`;
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             atualizarData();
         });
